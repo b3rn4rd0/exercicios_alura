@@ -1,0 +1,40 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+c.strokeStyle="black";
+c.strokeRect(0, 0, 600, 400);
+
+var imagem = new Image();
+imagem.src = "https://lh3.googleusercontent.com/-DHw_7sQZEWY/AAAAAAAAAAI/AAAAAAAAAAA/EsAA3I-UCYE/photo.jpg";
+
+var imagem2 = new Image();
+imagem2.src = "http://www.dicionarioinformal.com.br/image/v/493.png";
+
+var desenhaImagem = function(x, y) {
+    c.drawImage(imagem, x, y);
+};
+
+var desenhaCirculo = function(x, y, raio) {
+	c.strokeStyle="blue";
+	c.beginPath();
+	c.arc(x, y, raio, 0, 2*Math.PI);
+	c.stroke();
+};
+
+var x = 0;
+
+var desenha = function() {
+	desenhaCirculo(x, 10, 10);
+	desenhaCirculo(x, 40, 10);
+	desenhaCirculo(x, 360, 10);
+	desenhaCirculo(x, 390, 10);
+	desenhaImagem(x, 65);
+	x = x + 1;
+};
+
+setInterval(desenha, 30);
+
+</script>
